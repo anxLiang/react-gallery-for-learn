@@ -1,0 +1,156 @@
+@font-face
+{
+  font-family: "icons-turn-arrowhead";
+  src: url("../fonts/icons/arrowhead.svg") format("svg");
+}
+
+body
+{
+  width: 100%;
+  height: 100%;
+}
+
+#app
+{
+  width: 100%;
+  height: 100%;
+  background-color: #ddd;
+  position: relative;
+}
+
+.stage
+{
+  width: 100%;
+  height: 661px;
+  position: relative;
+}
+
+.img-sec
+{
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+
+  position: relative;
+
+  @at-root
+  {
+    .img-box
+    {
+      width: 170px;
+      height: 210px;
+      padding: 40px;
+      background-color: #fff;
+      margin: 0;
+      transform-style: preserve-3d;
+      transform-origin: 0 50% 0;
+
+      position: absolute;
+
+      &.is-inverse
+      {
+        transform: translateX(250px) translateY(-20px) rotateY(180deg);
+      }
+
+      img
+      {
+        width: 170px;
+        height: 170px;
+      }
+
+      h4
+      {
+        font-size: 16px;
+        text-align: center;
+        font-family: Microsoft Yahei;
+        height: 20px;
+        line-height: 20px;
+        margin-top: 20px;
+      }
+      .img-front
+      {
+        width: 170px;
+        height: 210px;
+        padding: 40px;
+
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        backface-visibility: hidden;
+      }
+      .img-back
+      {
+        width: 170px;
+        height: 210px;
+        padding: 40px;
+
+        position: absolute;
+        top: 0;
+        left: 0;
+        font-size: 16px;
+        font-family: Microsoft Yahei;
+
+        transform: rotateY(-180deg);
+        backface-visibility: hidden;
+      }
+    }
+  }
+}
+
+
+.ctrl-nav
+{
+  position: absolute;
+  text-align: center;
+
+  width: 100%;
+  height: 35px;
+  z-index: 101;
+
+  left: 0;
+  bottom: 70px;
+
+  @at-root
+  {
+    .ctrl-unit
+    {
+      display: inline-block;
+      width: 30px;
+      height: 30px;
+      margin: 0 5px;
+
+      line-height: 30px;
+      text-align: center;
+      background-color: #aaa;
+      border-radius: 50%;
+      cursor: pointer;
+      background-image: url("../images/arrowhead.png");
+      background-size: 0% 0%;
+      background-position: 45% 45%;
+      background-repeat: no-repeat;
+
+      transform: scale(0.5);
+      transition: transform 0.5s ease-in, background-color 0.5s ease-in, background-size 0.5s ease-in;
+
+      &.be-selected
+      {
+        transform: scale(1);
+        background-color: #fff;
+        background-size: 60% 60%;
+
+        box-shadow: 0 0 3px 3px #eee;
+      }
+
+      &.ctrl-inverse
+      {
+        transform: rotateY(180deg);
+      }
+    }
+  }
+}
+
+.transition-animation
+{
+  transition: transform 0.5s ease-in, top 0.5s ease-in, left 0.5s ease-in;
+}
